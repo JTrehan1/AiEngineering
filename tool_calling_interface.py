@@ -1,4 +1,4 @@
-'''AI Agents: The Tool Calling Interface
+'''AI Agents Core Mechanics: The Tool Calling Interface
 
 The component within the core loop focusses on handling tool schemas to pass to the model API. The interaction is a
 coordinated round trip between the stateless model and the stateful execution environment. 
