@@ -31,6 +31,7 @@ db.executescript(
 def query_delivery_status(order_id):
     """
     Look up an order by ID and return its status, date and carrier.
+    
     Args:
         order_id: Integer value representing an order_id.
     """
@@ -83,7 +84,7 @@ async def run_agent(question):
         messages.append({"role": "assistant", "content": msg})
 
         # Print any text from Claude this turn
-        for block in resp.content:
+        for block in msg:
             if block.type == "text":
                 print(block.text)
 
@@ -94,7 +95,7 @@ async def run_agent(question):
 
         # 3) Act if a tool is needed, run the tool with Claude's arguments and capture output
         tool_results = []
-        for block in resp.content:
+        for block in msg:
             if block.type != "tool_use":
                 continue
             tool_name = block.name
@@ -118,6 +119,9 @@ async def run_agent(question):
 
         # 4) Record
         messages.append({"role": "user", "content": tool_results})
+
+    else:
+        print(f"Stopped: reached {max_turns} turns before Claude finished.")
 
     return messages
 
