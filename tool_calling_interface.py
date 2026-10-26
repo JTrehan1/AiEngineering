@@ -18,6 +18,14 @@ from anthropic import AsyncAnthropic
 # 1) Native implementation of the tool
 
 def calculate_loan_payment(principal, rate, years):
+    """
+    Calculates the monthly repayment of a loan given the principal, rate and years. 
+
+    Args:
+        principal: The intial total loan value.
+        rate: The annual interest rate on the loan.
+        years: Duration of the loan in years.
+    """
     print(f"  [EXECUTE] Running calculate_loan_payment with P={principal}, R={rate}, Y={years}")
     monthly_rate = rate / 12.0
     months = years * 12
