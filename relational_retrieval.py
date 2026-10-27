@@ -25,13 +25,13 @@ db.executescript(
     "INSERT INTO customers VALUES (4, 'Diana Prince', 15000.00, 'UK');"
 )
 
-# 2. Expose a database query tool with securuty validation 
+# 2. Expose a database query tool with security validation 
 def run_readonly_query(sql_query):
     """
     Runs a single read only SQL query and returns the data in json dumps. 
 
     Args:
-        sql_query: SQL command formed by the LLM to execute. 
+        sql_query: SQL command created by the LLM to execute. LLM acts as a Text-to-SQL translator.
     """
     print(f"    [EXECUTE] Running run_readonly_query on SQL datbase. Query: {sql_query}")
     clean_query = sql_query.strip().upper()
