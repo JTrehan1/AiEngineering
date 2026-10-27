@@ -80,7 +80,8 @@ tools = [
             },
             "required": ["query"]
         }
-    }]
+    }
+]
 
 # 4. Agent Execution. Ask, run tool, return response, feedback to model.
 MODEL = "claude-opus-5-5"
@@ -127,7 +128,7 @@ async def run_rag_agent(question):
         if resp.stop_reason != "tool_use":
             break
 
-        # 3. Act - run each tool Clause requests 
+        # 3. Act - run each tool Claude requests 
         tool_results = []
         for block in resp.content:
             if block.type != "tool_use":
