@@ -15,7 +15,7 @@ import asyncio
 import sqlite3
 from anthropic import AsyncAnthropic
 
-# 1. Initialize database with customer records
+# 1. Initialise database with customer records
 db = sqlite3.connect(":memory:")
 db.executescript(
     "CREATE TABLE customers (id INT, name TEXT, balance REAL, country TEXT);"
